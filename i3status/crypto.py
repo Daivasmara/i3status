@@ -11,10 +11,9 @@ def myround (val, r=2):
   """
   return "{:.{}f}".format(float(val), r)
 
-with urllib.request.urlopen("https://api.kraken.com/0/public/Ticker?pair=XXBTZEUR,XLMEUR,XTZEUR") as url:
+with urllib.request.urlopen("https://api.kraken.com/0/public/Ticker?pair=XXBTZUSD,XETHZUSD") as url:
     data = json.loads(url.read().decode())
-    str = "₿ " + myround(data['result']['XXBTZEUR']['c'][0]) + "€ "
-    str += "ꜩ " + myround(data['result']['XTZEUR']['c'][0]) + "€ "
-    str += "XLM " + myround(data['result']['XXLMZEUR']['c'][0], 4) + "€"
+    str = "₿ " + myround(data['result']['XXBTZUSD']['a'][0]) + "$ "
+    str += "Ξ " + myround(data['result']['XETHZUSD']['a'][0]) + "$ "
     print(str, end='')
 

@@ -4,7 +4,7 @@ import json
 import urllib.request
 
 # sign in at https://openweathermap.org/api to get an API KEY
-APPID = "xxx"
+APPID = "68eba56091e58e68c71116e4d9d05014"
 
 # get you city ID at http://bulk.openweathermap.org/sample/
 CITYID = "2968815"
