@@ -5,7 +5,7 @@
 #   status_command exec /home/you/.config/i3status/mybar.sh
 # }
 
-bg_bar_color="#000000"
+bg_bar_color="#100e23"
 
 # Print a left caret separator
 # @params {string} $1 text color, ex: "#FF0000"
@@ -36,24 +36,25 @@ common() {
 }
 
 mycrypto() {
-	local bg="#FFD180"
+	local bg="#ff8080"
 	separator $bg $bg_bar_color
 	echo -n ",{"
 	echo -n "\"name\":\"id_crypto\","
 	echo -n "\"full_text\":\" $(~/.config/i3status/i3status/crypto.py) \","
-	echo -n "\"color\":\"#000000\","
+        echo -n "\"color\":\"#100e23\","
 	echo -n "\"background\":\"$bg\","
 	common
 	echo -n "},"
 }
 
 myip_public() {
-	local bg="#1976D2"
-	separator $bg "#FFD180"
+	local bg="#ff5458"
+	separator $bg "#ffb378"
 	echo -n ",{"
 	echo -n "\"name\":\"ip_public\","
 	echo -n "\"full_text\":\" $(~/.config/i3status/i3status/ip.py) \","
 	echo -n "\"background\":\"$bg\","
+        echo -n "\"color\":\"#100e23\","
 	common
 	echo -n "},"
 }
@@ -71,28 +72,31 @@ myvpn_on() {
 	echo -n "\"name\":\"id_vpn\","      
 	echo -n "\"full_text\":\" ${icon} VPN \","
 	echo -n "\"background\":\"$bg\","
+        echo -n "\"color\":\"#100e23\","
 	common
 	echo -n "},"
 }
 
 myip_local() {
-	local bg="#2E7D32" # vert
-	separator $bg "#1976D2"
+	local bg="#95ffa4" # vert
+	separator $bg "#ff8080"
 	echo -n ",{"
 	echo -n "\"name\":\"ip_local\","
 	echo -n "\"full_text\":\"   $(ip route get 1 | sed -n 's/.*src \([0-9.]\+\).*/\1/p') \","
 	echo -n "\"background\":\"$bg\","
+        echo -n "\"color\":\"#100e23\","
 	common
 	echo -n "},"
 }
 
 disk_usage() {
-	local bg="#3949AB"
-	separator $bg "#2E7D32"
+	local bg="#ffe9aa"
+	separator $bg "#95ffa4"
 	echo -n ",{"
 	echo -n "\"name\":\"id_disk_usage\","
 	echo -n "\"full_text\":\"   $(~/.config/i3status/i3status/disk.py)%\","
 	echo -n "\"background\":\"$bg\","
+        echo -n "\"color\":\"#100e23\","
 	common
 	echo -n "}"
 }
@@ -101,7 +105,8 @@ memory() {
 	echo -n ",{"
 	echo -n "\"name\":\"id_memory\","
 	echo -n "\"full_text\":\"   $(~/.config/i3status/i3status/memory.py)%\","
-	echo -n "\"background\":\"#3949AB\","
+	echo -n "\"background\":\"#ffe9aa\","
+        echo -n "\"color\":\"#100e23\","
 	common
 	echo -n "}"
 }
@@ -110,7 +115,8 @@ cpu_usage() {
 	echo -n ",{"
 	echo -n "\"name\":\"id_cpu_usage\","
 	echo -n "\"full_text\":\"   $(~/.config/i3status/i3status/cpu.py)% \","
-	echo -n "\"background\":\"#3949AB\","
+	echo -n "\"background\":\"#ffe9aa\","
+        echo -n "\"color\":\"#100e23\","
 	common
 	echo -n "},"
 }
@@ -127,12 +133,12 @@ meteo() {
 }
 
 mydate() {
-	local bg="#E0E0E0"
-	separator $bg "#3949AB"
+	local bg="#91ddff"
+	separator $bg "#ffe9aa"
 	echo -n ",{"
 	echo -n "\"name\":\"id_time\","
 	echo -n "\"full_text\":\"   $(LC_TIME=en_US date "+%a %d/%m %H:%M") \","
-	echo -n "\"color\":\"#000000\","
+        echo -n "\"color\":\"#100e23\","
 	echo -n "\"background\":\"$bg\","
 	common
 	echo -n "},"
@@ -140,8 +146,8 @@ mydate() {
 
 battery0() {
 	if [ -f /sys/class/power_supply/BAT0/uevent ]; then
-		local bg="#D69E2E"
-		separator $bg "#E0E0E0"
+		local bg="#c991e1"
+		separator $bg "#91ddff"
 		bg_separator_previous=$bg
 		prct=$(cat /sys/class/power_supply/BAT0/uevent | grep "POWER_SUPPLY_CAPACITY=" | cut -d'=' -f2)
 		charging=$(cat /sys/class/power_supply/BAT0/uevent | grep "POWER_SUPPLY_STATUS" | cut -d'=' -f2) # POWER_SUPPLY_STATUS=Discharging|Charging
@@ -159,8 +165,8 @@ battery0() {
 		fi
 		echo -n ",{"
 		echo -n "\"name\":\"battery0\","
-		echo -n "\"full_text\":\" ${icon} ${prct}% \","
-		echo -n "\"color\":\"#000000\","
+		echo -n "\"full_text\":\" ${icon}  ${prct}% \","
+                echo -n "\"color\":\"#100e23\","
 		echo -n "\"background\":\"$bg\","
 		common
 		echo -n "},"
@@ -170,8 +176,8 @@ battery0() {
 }
 
 volume() {
-	local bg="#673AB7"
-	separator $bg $bg_separator_previous  
+	local bg="#aaffe4"
+	separator $bg "#c991e1"
 	vol=$(pamixer --get-volume)
 	mute=$(pamixer --get-mute)
 	echo -n ",{"
@@ -184,6 +190,7 @@ volume() {
 		echo -n "\"full_text\":\"   ${vol}% \","
 	fi
 	echo -n "\"background\":\"$bg\","
+        echo -n "\"color\":\"#100e23\","
 	common
 	echo -n "},"
 	separator $bg_bar_color $bg
@@ -216,7 +223,7 @@ echo '[]'                   			# We send an empty first array of blocks to make 
 do
 	echo -n ",["
 	mycrypto
-	myip_public
+	# myip_public
 	myip_local
 	disk_usage
 	memory
