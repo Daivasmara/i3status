@@ -5,7 +5,7 @@
 #   status_command exec /home/you/.config/i3status/mybar.sh
 # }
 
-bg_bar_color="#100e23"
+bg_bar_color="#1E1C31"
 
 # Print a left caret separator
 # @params {string} $1 text color, ex: "#FF0000"
@@ -41,7 +41,7 @@ mycrypto() {
 	echo -n ",{"
 	echo -n "\"name\":\"id_crypto\","
 	echo -n "\"full_text\":\" $(~/.config/i3status/i3status/crypto.py) \","
-        echo -n "\"color\":\"#100e23\","
+        echo -n "\"color\":\"#1E1C31\","
 	echo -n "\"background\":\"$bg\","
 	common
 	echo -n "},"
@@ -54,7 +54,7 @@ myip_public() {
 	echo -n "\"name\":\"ip_public\","
 	echo -n "\"full_text\":\" $(~/.config/i3status/i3status/ip.py) \","
 	echo -n "\"background\":\"$bg\","
-        echo -n "\"color\":\"#100e23\","
+        echo -n "\"color\":\"#1E1C31\","
 	common
 	echo -n "},"
 }
@@ -72,7 +72,7 @@ myvpn_on() {
 	echo -n "\"name\":\"id_vpn\","      
 	echo -n "\"full_text\":\" ${icon} VPN \","
 	echo -n "\"background\":\"$bg\","
-        echo -n "\"color\":\"#100e23\","
+        echo -n "\"color\":\"#1E1C31\","
 	common
 	echo -n "},"
 }
@@ -84,7 +84,7 @@ myip_local() {
 	echo -n "\"name\":\"ip_local\","
 	echo -n "\"full_text\":\"   $(ip route get 1 | sed -n 's/.*src \([0-9.]\+\).*/\1/p') \","
 	echo -n "\"background\":\"$bg\","
-        echo -n "\"color\":\"#100e23\","
+        echo -n "\"color\":\"#1E1C31\","
 	common
 	echo -n "},"
 }
@@ -96,7 +96,7 @@ disk_usage() {
 	echo -n "\"name\":\"id_disk_usage\","
 	echo -n "\"full_text\":\"   $(~/.config/i3status/i3status/disk.py)%\","
 	echo -n "\"background\":\"$bg\","
-        echo -n "\"color\":\"#100e23\","
+        echo -n "\"color\":\"#1E1C31\","
 	common
 	echo -n "}"
 }
@@ -106,7 +106,7 @@ memory() {
 	echo -n "\"name\":\"id_memory\","
 	echo -n "\"full_text\":\"   $(~/.config/i3status/i3status/memory.py)%\","
 	echo -n "\"background\":\"#ffe9aa\","
-        echo -n "\"color\":\"#100e23\","
+        echo -n "\"color\":\"#1E1C31\","
 	common
 	echo -n "}"
 }
@@ -116,7 +116,7 @@ cpu_usage() {
 	echo -n "\"name\":\"id_cpu_usage\","
 	echo -n "\"full_text\":\"   $(~/.config/i3status/i3status/cpu.py)% \","
 	echo -n "\"background\":\"#ffe9aa\","
-        echo -n "\"color\":\"#100e23\","
+        echo -n "\"color\":\"#1E1C31\","
 	common
 	echo -n "},"
 }
@@ -138,7 +138,7 @@ mydate() {
 	echo -n ",{"
 	echo -n "\"name\":\"id_time\","
 	echo -n "\"full_text\":\"   $(LC_TIME=en_US date "+%a %d/%m %H:%M") \","
-        echo -n "\"color\":\"#100e23\","
+        echo -n "\"color\":\"#1E1C31\","
 	echo -n "\"background\":\"$bg\","
 	common
 	echo -n "},"
@@ -166,7 +166,7 @@ battery0() {
 		echo -n ",{"
 		echo -n "\"name\":\"battery0\","
 		echo -n "\"full_text\":\" ${icon}  ${prct}% \","
-                echo -n "\"color\":\"#100e23\","
+                echo -n "\"color\":\"#1E1C31\","
 		echo -n "\"background\":\"$bg\","
 		common
 		echo -n "},"
@@ -190,7 +190,7 @@ volume() {
 		echo -n "\"full_text\":\"   ${vol}% \","
 	fi
 	echo -n "\"background\":\"$bg\","
-        echo -n "\"color\":\"#100e23\","
+        echo -n "\"color\":\"#1E1C31\","
 	common
 	echo -n "},"
 	separator $bg_bar_color $bg
