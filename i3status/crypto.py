@@ -11,9 +11,12 @@ def myround (val, r=2):
   """
   return "{:.{}f}".format(float(val), r)
 
-with urllib.request.urlopen("https://api.kraken.com/0/public/Ticker?pair=XXBTZUSD,XETHZUSD") as url:
+with urllib.request.urlopen("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,lto-network,nimiq,fantom&vs_currencies=usd") as url:
     data = json.loads(url.read().decode())
-    str = "₿ " + myround(data['result']['XXBTZUSD']['a'][0]) + "$ "
-    str += "Ξ " + myround(data['result']['XETHZUSD']['a'][0]) + "$ "
+    str = "₿ " + str(data["bitcoin"]["usd"]) + " "
+    str += "⟠ " + "{:.3f}".format(data["ethereum"]["usd"]) + " "
+    str += "⚶ " + "{:.3f}".format(data["lto-network"]["usd"]) + " "
+    str += "⎔ " + "{:.3f}".format(data["nimiq"]["usd"]) + " "
+    str += "❏ " + "{:.3f}".format(data["fantom"]["usd"]) + " "
     print(str, end='')
 
