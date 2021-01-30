@@ -36,7 +36,7 @@ common() {
 }
 
 mycrypto() {
-	local bg="#95ffa4"
+	local bg="#ecf0f1"
 	separator $bg $bg_bar_color
 	echo -n ",{"
 	echo -n "\"name\":\"id_crypto\","
@@ -90,8 +90,8 @@ myip_local() {
 }
 
 disk_usage() {
-	local bg="#ffe9aa"
-	separator $bg "#95ffa4"
+	local bg="#ffeaa7"
+	separator $bg "#ecf0f1"
 	echo -n ",{"
 	echo -n "\"name\":\"id_disk_usage\","
 	echo -n "\"full_text\":\"   $(~/.config/i3status/i3status/disk.py)%\","
@@ -105,7 +105,7 @@ memory() {
 	echo -n ",{"
 	echo -n "\"name\":\"id_memory\","
 	echo -n "\"full_text\":\"   $(~/.config/i3status/i3status/memory.py)%\","
-	echo -n "\"background\":\"#ffe9aa\","
+	echo -n "\"background\":\"#ffeaa7\","
         echo -n "\"color\":\"#1E1C31\","
 	common
 	echo -n "}"
@@ -115,7 +115,7 @@ cpu_usage() {
 	echo -n ",{"
 	echo -n "\"name\":\"id_cpu_usage\","
 	echo -n "\"full_text\":\"   $(~/.config/i3status/i3status/cpu.py)% \","
-	echo -n "\"background\":\"#ffe9aa\","
+	echo -n "\"background\":\"#ffeaa7\","
         echo -n "\"color\":\"#1E1C31\","
 	common
 	echo -n "},"
@@ -133,8 +133,8 @@ meteo() {
 }
 
 mydate() {
-	local bg="#91ddff"
-	separator $bg "#ffe9aa"
+	local bg="#74b9ff"
+	separator $bg "#ffeaa7"
 	echo -n ",{"
 	echo -n "\"name\":\"id_time\","
 	echo -n "\"full_text\":\"   $(LC_TIME=en_US date "+%a %d/%m %H:%M") \","
@@ -146,8 +146,8 @@ mydate() {
 
 battery0() {
 	if [ -f /sys/class/power_supply/BAT0/uevent ]; then
-		local bg="#c991e1"
-		separator $bg "#91ddff"
+		local bg="#fd79a8"
+		separator $bg "#74b9ff"
 		bg_separator_previous=$bg
 		prct=$(cat /sys/class/power_supply/BAT0/uevent | grep "POWER_SUPPLY_CAPACITY=" | cut -d'=' -f2)
 		charging=$(cat /sys/class/power_supply/BAT0/uevent | grep "POWER_SUPPLY_STATUS" | cut -d'=' -f2) # POWER_SUPPLY_STATUS=Discharging|Charging
@@ -176,8 +176,8 @@ battery0() {
 }
 
 volume() {
-	local bg="#aaffe4"
-	separator $bg "#c991e1"
+	local bg="#dfe6e9"
+	separator $bg "#fd79a8"
 	vol=$(pamixer --get-volume)
 	mute=$(pamixer --get-mute)
 	echo -n ",{"
@@ -231,7 +231,8 @@ do
 	mydate
 	battery0
 	volume
-	systemupdate
+	# systemupdate
+	# logout
 	echo "]"
 	sleep 10
 done) &
