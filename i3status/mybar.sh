@@ -36,7 +36,7 @@ common() {
 }
 
 mycrypto() {
-	local bg="#ff8080"
+	local bg="#95ffa4"
 	separator $bg $bg_bar_color
 	echo -n ",{"
 	echo -n "\"name\":\"id_crypto\","
@@ -91,7 +91,7 @@ myip_local() {
 
 disk_usage() {
 	local bg="#ffe9aa"
-	separator $bg "#ff8080"
+	separator $bg "#95ffa4"
 	echo -n ",{"
 	echo -n "\"name\":\"id_disk_usage\","
 	echo -n "\"full_text\":\"   $(~/.config/i3status/i3status/disk.py)%\","
