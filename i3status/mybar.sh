@@ -91,7 +91,7 @@ myip_local() {
 
 disk_usage() {
 	local bg="#ffe9aa"
-	separator $bg "#95ffa4"
+	separator $bg "#ff8080"
 	echo -n ",{"
 	echo -n "\"name\":\"id_disk_usage\","
 	echo -n "\"full_text\":\"   $(~/.config/i3status/i3status/disk.py)%\","
@@ -224,7 +224,7 @@ do
 	echo -n ",["
 	mycrypto
 	# myip_public
-	myip_local
+	# myip_local
 	disk_usage
 	memory
 	cpu_usage
